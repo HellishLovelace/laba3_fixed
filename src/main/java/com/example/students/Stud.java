@@ -1,6 +1,6 @@
 package com.example.students;
 
-public class Student {
+public class Stud {
     private String firstName;
     private String lastName;
     private String group;
@@ -47,7 +47,7 @@ public class Student {
         this.subject = subject;
     }
 
-    public Student(String firstName, String lastName, String group, int age, String subject) {
+    public Stud(String firstName, String lastName, String group, int age, String subject) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.group = group;
@@ -55,7 +55,7 @@ public class Student {
         this.subject = subject;
     }
 
-    public Student() {
+    public Stud() {
     }
 
     @Override

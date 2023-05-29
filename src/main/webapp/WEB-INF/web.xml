@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>StudentController</servlet-name>
-        <servlet-class>com.example.students.StudentController</servlet-class>
+        <servlet-class>com.example.students.StudController</servlet-class>
     </servlet>
 
     <servlet-mapping>

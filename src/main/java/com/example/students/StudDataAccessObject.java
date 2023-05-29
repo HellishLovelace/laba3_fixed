@@ -8,22 +8,22 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDataAccessObject {
+public class StudDataAccessObject {
     private File file;
     private ObjectMapper objectMapper;
 
-    public StudentDataAccessObject(String fileName) {
+    public StudDataAccessObject(String fileName) {
         file = new File(fileName);
         objectMapper = new ObjectMapper();
     }
 
-    public List<Student> getAllStudents() {
-        List<Student> students = new ArrayList<>();
+    public List<Stud> getAllStudents() {
+        List<Stud> students = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                Student student = objectMapper.readValue(line, Student.class);
+                Stud student = objectMapper.readValue(line, Stud.class);
                 students.add(student);
             }
         } catch (IOException e) {
@@ -33,7 +33,7 @@ public class StudentDataAccessObject {
         return students;
     }
 
-    public boolean addStudent(Student student) {
+    public boolean addStudent(Stud student) {
         try (FileWriter writer = new FileWriter(file, true)) {
             String json = objectMapper.writeValueAsString(student);
             writer.write(json + "\n");

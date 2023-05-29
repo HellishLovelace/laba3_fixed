@@ -9,18 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class StudentController extends HttpServlet {
-    private StudentDataAccessObject studentDAO;
+public class StudController extends HttpServlet {
+    private StudDataAccessObject studentDAO;
     private ObjectMapper objectMapper;
 
-    public StudentController() {
-        studentDAO = new StudentDataAccessObject("students.json");
+    public StudController() {
+        studentDAO = new StudDataAccessObject("students.json");
         objectMapper = new ObjectMapper();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Student> students = studentDAO.getAllStudents();
+        List<Stud> students = studentDAO.getAllStudents();
         String json = objectMapper.writeValueAsString(students);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
@@ -36,7 +36,7 @@ public class StudentController extends HttpServlet {
         int age = Integer.parseInt(req.getParameter("age"));
         String subject = req.getParameter("subject");
 
-        Student student = new Student(firstName, lastName, group, age, subject);
+        Stud student = new Stud(firstName, lastName, group, age, subject);
         boolean success = studentDAO.addStudent(student);
 
         String json = objectMapper.writeValueAsString(success);
